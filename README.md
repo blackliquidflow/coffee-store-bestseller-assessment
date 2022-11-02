@@ -35,16 +35,16 @@ Note: Drink with Toppings is referred to as Beverage
 # Some Notes Regarding Implementation Decisions
 
 1) I've considered storing Drinks and Toppings in one table. It would merge very similar logic that is present for
-   fetching/creating/updating/deleting these object. But this would make the solution less extensible and also make
-   search operations in resulting table slower.
+   fetching/creating/updating/deleting these objects. But this would make the solution less extensible and also make
+   search operations in the resulting table slower.
 2) Models are used directly in API responses instead of DTOs to lessen boilerplate code a bit. Since
-   no sensitive information is present in the models that is not intended to be sent to client it seems ok to do so.
+   no sensitive information is present in the models that is not intended to be sent to the client it seems ok to do so.
 3) Mechanism of calculating the total price for Cart and Order is simplified. In real application it should contain
-   either invalidation of cart item when the price changes or re-calculation of total order price during the order
+   either invalidation of cart items when the price changes or re-calculation of total order price during the order
    creation step.
-4) I've decided to go with separate table to store order history to make searching data for reports easier and also
-   make operations with main Order table faster as it now can be cleared from time to time.
-5) Also, worth spitting packages to logical subsections - like 'ordering', 'reports', 'items_management' when the
+4) I've decided to go with a separate table to store order history to make searching data for reports easier and also
+   make operations with the main Order table faster as it now can be cleared from time to time.
+5) Also, worth splitting packages to logical subsections - like 'ordering', 'reports', 'items_management' when the
    codebase grows.
 
 # Run Docker Container
